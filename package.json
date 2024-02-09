@@ -1,0 +1,17 @@
+{
+  "name": "image-resizer-electron",
+  "version": "1.0.0",
+  "description": "An image resizer application for desktop",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "author": "Swapnil Pranta",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^28.2.1",
+    "resize-img": "^2.0.0",
+    "toastify-js": "^1.12.0"
+  }
+}
