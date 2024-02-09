@@ -1,17 +1,58 @@
 {
   "name": "image-resizer-electron",
   "version": "1.0.0",
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "certificateFile": "./cert.pfx",
+            "certificatePassword": "process.env.CERTIFICATE_PASSWORD"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
   "description": "An image resizer application for desktop",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "test": "electron .",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "author": "Swapnil Pranta",
   "license": "ISC",
   "dependencies": {
-    "electron": "^28.2.1",
+    "electron-squirrel-startup": "^1.0.0",
     "resize-img": "^2.0.0",
     "toastify-js": "^1.12.0"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^7.2.0",
+    "@electron-forge/maker-deb": "^7.2.0",
+    "@electron-forge/maker-rpm": "^7.2.0",
+    "@electron-forge/maker-squirrel": "^7.2.0",
+    "@electron-forge/maker-zip": "^7.2.0",
+    "@electron-forge/plugin-auto-unpack-natives": "^7.2.0",
+    "electron": "^28.2.2",
+    "electron-winstaller": "^5.2.2"
   }
 }

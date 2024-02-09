@@ -41,6 +41,7 @@ function createAboutWindow() {
     aboutWindow.loadFile(path.join(__dirname, './renderer/about.html'));
 }
 
+if (require('electron-squirrel-startup')) app.quit();
 //App is ready
 app.whenReady().then(() => {
     createMainWindow();
